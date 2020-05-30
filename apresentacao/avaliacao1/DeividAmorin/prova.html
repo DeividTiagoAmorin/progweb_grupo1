@@ -26,7 +26,7 @@
                 <h4><a href="paginas/CSSmargin.html">CSS Margins</a></h4>
                 <h4><a href="paginas/CSSpadings.html">CSS Paddings</a></h4>
             <h2>Atividades Tabela</h2>
-                <h4><a href="">Lista de Produtos</a></h4>
+                <h4><a href="paginas/tabela.html">Lista de Produtos</a></h4>
         </div>
         <div class="box d" id="conteudo">
             <h1 class="linguagens">Linguagens</h1>
@@ -36,5 +36,19 @@
             <h5>Av. Dr.  Flávio Henrique Lemos, 585 Portal Itamaracá, Taquaritinga - SP CEP: 15906-522</h5>
         </div>
       </div>
+
+      <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+
+            link.onclick = function (e) {
+                e.preventDefault()
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+
 </body>
 </html>
